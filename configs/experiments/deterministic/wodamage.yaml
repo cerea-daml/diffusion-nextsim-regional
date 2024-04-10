@@ -1,0 +1,27 @@
+# @package _global_
+defaults:
+  - override /decoder: wodamage
+  - override /encoder: wodamage
+
+exp_name: det_wo_damage
+
+data:
+  forcing_variables:
+    - 'tus'
+    - 'huss'
+    - 'uas'
+    - 'vas'
+  state_variables:
+    - 'sit'
+    - 'sic'
+    - 'siu'
+    - 'siv'
+  n_input_steps: 1
+
+network:
+  n_input: 12
+  n_output: 4
+
+callbacks:
+  surrogate_onestep:
+    std: [0.7506, 0.1848, 0.0836, 0.0878,]

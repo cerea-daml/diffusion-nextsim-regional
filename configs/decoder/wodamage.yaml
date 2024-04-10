@@ -1,0 +1,7 @@
+_target_: diffusion_nextsim.decoder.GaussianDecoder
+stochastic: false
+# SIT SIC SIU SIV
+mean: [-0.0000, 0.0000, -0.0000, 0.0000]
+std: [0.1163, 0.0313, 0.0541, 0.0546]
+lower_bound: [0., 0., -.inf, -.inf]
+upper_bound: [.inf, 1., .inf, .inf]

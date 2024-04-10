@@ -1,0 +1,6 @@
+_target_: ddm_dynamical.sampler.HeunSampler
+timesteps: 20
+scheduler: ${scheduler}
+grad_scale: 1.
+heun: true
+pbar: false

@@ -1,0 +1,13 @@
+# @package _global_
+trainer:
+  accelerator: "mps"
+  devices: 1
+
+data:
+  pin_memory: false
+
+logger:
+  mode: "disabled"
+
+batch_size: 2
+num_workers: 8

@@ -1,0 +1,9 @@
+_target_: diffusion_nextsim.surrogate.ProbabilisticModel
+network: ${network}
+decoder: ${decoder}
+encoder: ${encoder}
+lr: 5E-4
+lr_warmup: 5000
+total_steps: ${trainer.max_steps}
+weight_decay: 0.01
+_recursive_: false

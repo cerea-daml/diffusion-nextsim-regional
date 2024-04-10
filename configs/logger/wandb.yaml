@@ -1,0 +1,5 @@
+_target_: lightning.pytorch.loggers.WandbLogger
+project: "diffusion_nextsim"
+save_dir: 'data'
+name: '${exp_name}'
+log_model: false

@@ -1,0 +1,35 @@
+defaults:
+  - trainer: default
+  - callbacks:
+      - learning_rate_monitor
+      - model_checkpoint
+      - model_checkpoint_nrmse
+      - rich
+      - surrogate_onestep
+      - surrogate_predict
+  - logger: wandb
+  - surrogate: probabilistic
+  - network: uvit_s
+  - decoder: default
+  - encoder: default
+  - data: surrogate
+  - hydra: default
+  - _self_
+
+exp_name: ${now:%Y-%m-%d}_${now:%H-%M-%S}
+exp_type: "deterministic"
+logging_level: DEBUG
+seed: 0
+batch_size: 64
+num_workers: 16
+
+ckpt_path: null
+n_cycles: 60
+n_ens: 1
+
+logger:
+  entity: cerea-daml
+  project: sea_ice_prediction_regional
+  tags:
+    - surrogate
+    - train

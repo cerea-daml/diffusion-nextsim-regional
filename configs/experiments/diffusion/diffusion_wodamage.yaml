@@ -1,0 +1,70 @@
+# @package _global_
+
+defaults:
+  - /sampler: heun
+  - /scheduler@sampler.scheduler: edm_sampling
+  - /scheduler: binarized
+  - /param: v
+  - /weighting: exp
+  - override /decoder: wodamage
+  - override /encoder: wodamage
+  - override /network: uvit_l
+  - override /surrogate: diffusion
+  - override /callbacks:
+      - learning_rate_monitor
+      - model_checkpoint
+      - model_checkpoint_nrmse
+      - rich
+      - surrogate_onestep
+      - surrogate_predict
+      - surrogate_test
+      - scheduler
+
+exp_name: diffusion_wo_damage
+exp_type: "diffusion"
+
+data:
+  forcing_variables:
+    - 'tus'
+    - 'huss'
+    - 'uas'
+    - 'vas'
+  state_variables:
+    - 'sit'
+    - 'sic'
+    - 'siu'
+    - 'siv'
+  n_input_steps: 1
+
+network:
+  n_input: 16
+  n_output: 4
+  n_time_hidden: 512
+
+callbacks:
+  surrogate_onestep:
+    every_n_step: 2000
+    std: [ 0.7506, 0.1848, 0.0836, 0.0878, ]
+  surrogate_predict:
+    every_n_step: 2000
+  surrogate_test:
+    compile: true
+
+sampler:
+  timesteps: 20
+  pbar: false
+  scheduler:
+    gamma_max: 15
+    gamma_min: -10
+
+scheduler:
+  gamma_max: 20
+  gamma_min: -20
+
+trainer:
+  max_steps: 500000
+
+weighting:
+  _target_: ddm_dynamical.weighting.ExponentialWeighting
+  multiplier: 0.5
+  shift: 0.

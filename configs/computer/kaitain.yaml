@@ -1,0 +1,9 @@
+# @package _global_
+num_workers: 8
+batch_size: 256
+
+trainer:
+  accelerator: gpu
+  devices: 1
+  precision: "bf16-mixed"
+  val_check_interval: 500

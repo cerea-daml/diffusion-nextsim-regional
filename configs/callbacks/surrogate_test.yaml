@@ -1,0 +1,7 @@
+surrogate_test:
+  _target_: diffusion_nextsim.callbacks.SurrogateTestCallback
+  variables: ${data.state_variables}
+  n_cycles: ${n_cycles}
+  n_ens: ${n_ens}
+  compile: false
+  use_ema: true

@@ -1,0 +1,15 @@
+_target_: diffusion_nextsim.surrogate.DiffusionModel
+_recursive_: false
+network: ${network}
+encoder: ${encoder}
+decoder: ${decoder}
+scheduler: ${scheduler}
+sampler: ${sampler}
+weighting: ${weighting}
+param: ${param}
+lr: 2E-4
+lr_warmup: 5000
+total_steps: ${trainer.max_steps}
+weight_decay: 0.01
+ema_rate: 0.999
+use_ema: true

@@ -1,0 +1,8 @@
+surrogate_predict:
+  _target_: diffusion_nextsim.callbacks.SurrogatePredictCallback
+  auxiliary_path: ${data.aux_path}
+  variables: ${data.state_variables}
+  every_n_step: 500
+  n_input_steps: ${data.n_input_steps}
+  steps_to_plot: [0, 1, 2, 10, 30]
+  plot_idx: 0

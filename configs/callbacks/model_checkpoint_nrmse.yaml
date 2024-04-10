@@ -1,0 +1,8 @@
+model_checkpoint_nrmse:
+  _target_: lightning.pytorch.callbacks.ModelCheckpoint
+  dirpath: 'data/models/${exp_type}/${exp_name}'
+  filename: 'best_nrmse'
+  auto_insert_metric_name: false
+  save_top_k: 1
+  monitor: 'scores/nrmse'
+  save_last: false

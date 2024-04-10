@@ -1,0 +1,46 @@
+defaults:
+  - trainer: default
+  - callbacks:
+      - rich
+      - surrogate_test
+  - logger: wandb
+  - surrogate: probabilistic
+  - network: uvit_s
+  - decoder: default
+  - encoder: default
+  - data: surrogate
+  - hydra: default
+  - _self_
+
+exp_name: ${now:%Y-%m-%d}_${now:%H-%M-%S}
+exp_type: "deterministic"
+logging_level: DEBUG
+seed: 0
+batch_size: 64
+num_workers: 4
+
+dataset_path: "data/nextsim/test_regional.zarr"
+ckpt_path: ???
+delta_t: 2
+n_cycles: 30
+n_ens: 1
+
+keep_decoder: false
+keep_encoder: false
+
+callbacks:
+  surrogate_test:
+    n_input_steps: ${data.n_input_steps}
+    n_cycles: ${n_cycles}
+    n_ens: ${n_ens}
+
+trainer:
+  deterministic: false
+  benchmark: true
+
+logger:
+  entity: cerea-daml
+  project: sea_ice_prediction_regional_scores
+  tags:
+    - surrogate
+    - predict

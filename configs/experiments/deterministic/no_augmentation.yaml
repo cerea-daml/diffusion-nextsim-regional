@@ -1,0 +1,25 @@
+# @package _global_
+defaults:
+  - override /data/augmentation: to_tensor
+
+exp_name: det_no_aug
+
+data:
+  forcing_variables:
+    - 'tus'
+    - 'huss'
+    - 'uas'
+    - 'vas'
+  state_variables:
+    - 'sit'
+    - 'sic'
+    - 'damage'
+    - 'siu'
+    - 'siv'
+  n_input_steps: 1
+
+network:
+  n_input: 13
+  n_output: 5
+  n_embedding: 1
+  n_augment_hidden: 0

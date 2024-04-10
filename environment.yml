@@ -1,0 +1,35 @@
+name: diffusion_regional
+channels:
+  - anaconda
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - tqdm
+  - cartopy
+  - matplotlib
+  - numpy
+  - scipy
+  - zarr
+  - netcdf4
+  - xarray
+  - dask
+  - distributed
+  - ipykernel
+  - ipywidgets
+  - pip:
+      - git+https://github.com/katsura-jp/pytorch-cosine-annealing-with-warmup
+      - k_diffusion
+      - cmocean
+      - einops
+      - rich
+      - pykeops
+      - torch
+      - torchvision
+      - torchaudio
+      - lightning
+      - hydra-core
+      - hydra-joblib-launcher
+      - hydra-submitit-launcher
+      - hydra-optuna-sweeper
+      - wandb

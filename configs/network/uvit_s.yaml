@@ -1,0 +1,19 @@
+_target_: diffusion_nextsim.network.UViT
+n_input: 13
+n_output: 5
+n_features: 64
+n_bottleneck: 2
+# 64 -> 32 -> 16 -> 8
+n_down_blocks: [2, 2, 2]
+# 8 -> 16 -> 32 -> 64
+n_up_blocks: [2, 2, 2]
+channel_mul: [2, 4, 8]
+n_heads: 8
+n_embedding: 64
+n_augment_hidden: 3
+n_mesh_hidden: 0
+n_time_hidden: 0
+mult: 1
+dropout_attn: 0.2
+dropout_mlp: 0.2
+attn_type: null

@@ -1,0 +1,9 @@
+model_checkpoint:
+  _target_: lightning.pytorch.callbacks.ModelCheckpoint
+  dirpath: 'data/models/${exp_type}/${exp_name}'
+  filename: 'best'
+  auto_insert_metric_name: false
+  save_top_k: 1
+  monitor: 'val/loss'
+  save_last: true
+  save_on_train_epoch_end: true

@@ -1,0 +1,5 @@
+_target_: diffusion_nextsim.data.augmentation.Augmentation
+hflip_prob: 0.
+vflip_prob: 0.
+rot_prob: 0.
+crop_fields: false

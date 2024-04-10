@@ -1,0 +1,20 @@
+# @package _global_
+exp_name: deterministic
+
+data:
+  forcing_variables:
+    - 'tus'
+    - 'huss'
+    - 'uas'
+    - 'vas'
+  state_variables:
+    - 'sit'
+    - 'sic'
+    - 'damage'
+    - 'siu'
+    - 'siv'
+  n_input_steps: 1
+
+network:
+  n_input: 13
+  n_output: 5

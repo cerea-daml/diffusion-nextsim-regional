@@ -1,0 +1,29 @@
+defaults:
+  - augmentation: default_augmentations
+
+_target_: diffusion_nextsim.data.SurrogateDataModule
+data_path: 'data/nextsim'
+zip_path: null
+aux_path: 'data/auxiliary/ds_auxiliary${data.suffix}.nc'
+delta_t: 2
+n_input_steps: 1
+n_rollout_steps: 1
+forcing_variables:
+  - 'tus'
+  - 'huss'
+  - 'uas'
+  - 'vas'
+state_variables:
+  - 'sit'
+  - 'sic'
+  - 'damage'
+  - 'siu'
+  - 'siv'
+rotate_wind: true
+train_start_date: null
+batch_size: ${batch_size}
+n_workers: ${num_workers}
+n_train_samples: null
+pin_memory: true
+fast: true
+suffix: "_regional"

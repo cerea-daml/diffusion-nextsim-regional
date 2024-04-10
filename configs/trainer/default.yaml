@@ -1,0 +1,10 @@
+_target_: lightning.pytorch.Trainer
+enable_checkpointing: true
+accelerator: "gpu"
+max_epochs: -1
+max_steps: 100000
+benchmark: false
+deterministic: false
+val_check_interval: 250
+check_val_every_n_epoch: null
+default_root_dir: 'data/models/${exp_type}/${exp_name}'
